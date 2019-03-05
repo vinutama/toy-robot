@@ -4,7 +4,8 @@
   "description": "Toy Robot Simulator",
   "main": "app.js",
   "scripts": {
-    "test": "nyc mocha --exit"
+    "test": "nyc mocha --exit",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
