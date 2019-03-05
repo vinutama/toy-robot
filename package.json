@@ -1,0 +1,25 @@
+{
+  "name": "toy-robot",
+  "version": "1.0.0",
+  "description": "Toy Robot Simulator",
+  "main": "app.js",
+  "scripts": {
+    "test": "nyc mocha --exit",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinutama/toy-robot.git"
+  },
+  "author": "Muhammad Khevin Utama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinutama/toy-robot/issues"
+  },
+  "homepage": "https://github.com/vinutama/toy-robot#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0"
+  }
+}
