@@ -1,10 +1,14 @@
 const fs = require('fs');
-const inputPath = process.argv.slice(2)[0] || 'exampleA.txt';
+let inputPath = process.argv.slice(2)[0];
 const directions = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
 
 
 class Game {
   static run () {
+    //FOR TESTING PURPOSES
+    if (inputPath == '--exit') {
+      inputPath = 'exampleA.txt'
+    }
     return new Promise(function (resolve, reject) {
       fs.readFile(inputPath, 'utf8', (err, data) => {
         if (err) {

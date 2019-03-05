@@ -8,7 +8,19 @@ let manipulated = [];
 let position = {};
 let result = '';
 
-
+describe('TESTING FOR RUNNING FUNCTIONS', function () {
+  it('should return running game', function (done) {
+    let test = [ { name: 'PLACE', coord: [ '0', '0', 'SOUTH' ] },
+    { name: 'MOVE', coord: undefined },
+    { name: 'MOVE', coord: undefined },
+    { name: 'MOVE', coord: undefined },
+    { name: 'RIGHT', coord: undefined },
+    { name: 'REPORT', coord: undefined } ];
+    move(test, position, result)
+    play()
+    done()
+  })
+})
 describe('TESTING MANIPULATING INPUT', function () {
   it('should return an array of object of the input', function (done) {
     const result = setInput(inputTest);
@@ -82,35 +94,4 @@ describe('TESTING FOR MOVING ROBOT', function () {
     done();
   })
 })
-describe('TESTING FOR RUNNING FUNCTIONS', function () {
-  it('should return running game', function (done) {
-    run (() => { return new Promise((resolve, reject) => {
-      fs.readFile('exampleA.txt', 'utf8', (err, data) => {
-        if (err) reject (err);
-        else {
-          const input = setInput(data);
-          move(input, position, result);
-          resolve(position)
-        }
-      })
-    })})
 
-    play(() => {
-      run()
-      .then(data => {
-        showConsole(data)
-      })
-    })
-
-    console.log(play())
-    
-    done()
-  })
-  it('should return running game', function (done) {
-    let test = [ { name: 'PLACE', coord: [ '4', '-1', 'EAST' ] },
-    { name: 'MOVE', coord: undefined },
-    { name: 'REPORT', coord: undefined } ];
-    
-    done();
-  })
-})
