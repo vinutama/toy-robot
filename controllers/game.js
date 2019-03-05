@@ -1,5 +1,5 @@
 const fs = require('fs');
-const inputPath = process.argv.slice(2)[0];
+const inputPath = process.argv.slice(2)[0] || 'exampleA.txt';
 const directions = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
 
 
@@ -13,7 +13,7 @@ class Game {
           const input = Game.setInput(data); 
           let position = {};
           let result = '';
-          Game.move(input, position, result)
+          Game.move(input, position, result);
           resolve(position);
         }
       });
@@ -25,18 +25,18 @@ class Game {
     newData.forEach(val => {
       let line = val.split(' ');
       let name = line[0];
-      let params = line[1];
-      if (params) params = line[1].split(',');
-      input.push({name, params});
+      let coord = line[1];
+      if (coord) coord = line[1].split(',');
+      input.push({name, coord});
     })
     return input;
   }
   static move (input, position, result) {
     input.forEach(val => {
       if (val.name == 'PLACE') {
-        position.X = val.params[0];
-        position.Y = val.params[1];
-        position.F = val.params[2];
+        position.X = val.coord[0];
+        position.Y = val.coord[1];
+        position.F = val.coord[2];
       } 
       else if (val.name == 'MOVE') {
         if (position.F == 'NORTH') {
